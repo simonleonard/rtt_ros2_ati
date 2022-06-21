@@ -1,0 +1,49 @@
+import("rtt_ros")
+import("rtt_roscomm")
+import("rtt_rosnode")
+import("rtt_geometry_msgs")
+import("rtt_dynamic_reconfigure")
+
+import("ati")
+
+import("ocl")
+
+require("ros");
+
+# create the ATI component and run in real-time at 200Hz
+loadComponent( "ATI", "ATI" )
+setActivity( "ATI", 0.05, 40, ORO_SCHED_RT )
+
+# tell RTT to use /dev/comedi0
+ATI.setDeviceFile( "/dev/comedi0" )
+
+# configure the suture ATI to use Analog Input [0-5] and use the calibration file
+# 12538
+var ints suture_channels = ints( 16, 17, 18, 19, 20, 21 )
+ATI.configureSensor( "suture", suture_channels, "/home/sleonard/ros/star/src/star/ati/config/FT12538.cal" )
+
+# configure the suture ATI to use Analog Input [16-21] and use the calibration file
+# 18215
+var ints assist_channels = ints( 0, 1, 2, 3, 4, 5 )
+ATI.configureSensor( "assistant", assist_channels, "/home/sleonard/ros/star/src/star/ati/config/FT18215.cal" )
+
+# stream the output ports to ROS
+stream( "ATI.suture", ros.comm.topic("/suture/ati") )
+stream( "ATI.assistant", ros.comm.topic("/assistant/ati") )
+
+# star the ATI component
+ATI.configure()
+ATI.start()
+
+# zero both sensors
+ATI.zero( "suture" )
+ATI.zero( "assistant" )
+
+
+
+
+
+
+
+
+

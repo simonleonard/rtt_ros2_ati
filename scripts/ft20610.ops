@@ -1,0 +1,33 @@
+import("rtt_ros")
+import("rtt_roscomm")
+import("rtt_rosnode")
+import("rtt_geometry_msgs")
+import("rtt_dynamic_reconfigure")
+
+import("ati_rtt")
+
+import("ocl")
+
+require("ros");
+
+loadComponent( "ati", "ati_rtt" )
+setActivity( "ati", 0.05, 0, ORO_SCHED_RT )
+
+ati.setDeviceFile( "/dev/comedi0" )
+
+#var ints channels = ints( 15, 16, 17, 18, 19, 20 )
+var ints channels = ints( 0, 1, 2, 3, 4, 5 )
+ati.configureSensor( "ft20610", channels, "/home/sleonard/ros/mre/src/mre/ati/ati_rtt/config/FT20610.cal")
+
+stream( "ati.ft20610", ros.comm.topic("/ft20610") )
+ati.configure()
+ati.start()
+ati.zero( "ft20610" )
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="rtt_ros"
+        type="deployer"
+        name="rtt_ati_assistant"
+        args="-s $(find ati_rtt)/scripts/ft20610.ops"
+        output="screen">
+  </node>
+
+</launch>

@@ -1,0 +1,36 @@
+import("rtt_ros")
+import("rtt_roscomm")
+import("rtt_rosnode")
+import("rtt_geometry_msgs")
+import("rtt_dynamic_reconfigure")
+
+import("ati")
+
+import("ocl")
+
+require("ros");
+
+loadComponent( "ATI", "ATI" )
+setActivity( "ATI", 0.001, 0, ORO_SCHED_OTHER )
+
+ATI.setDeviceFile( "/dev/comedi0" )
+
+var ints channels = ints( 0, 1, 2, 3, 4, 5 )
+#var ints channels = ints(  6, 7, 8, 9, 10, 11 )
+#var ints channels = ints( 22, 23, 24, 25, 26, 27 )
+ATI.configureSensor( "tuebingen", channels, "/home/sleonard/ros/ati/src/ati/config/FT18215.cal" )
+
+stream( "ATI.tuebingen", ros.comm.topic("/tuebingen/ati") )
+
+ATI.configure()
+ATI.start()
+
+
+
+
+
+
+
+
+
+
