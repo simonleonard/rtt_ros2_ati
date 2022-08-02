@@ -27,9 +27,9 @@
 #include <limits.h>
 #include <ctype.h>
 #include <stdio.h>
-#include <ati_rtt/xmlparse.h>
-#include <ati_rtt/stack.h>
-#include <ati_rtt/dom.h>
+#include <rtt_ros2_ati/xmlparse.h>
+#include <rtt_ros2_ati/stack.h>
+#include <rtt_ros2_ati/dom.h>
 
 const char *SP = "                                ";
 #define INDENT(n) ((n) > 8 ? SP : (SP + (32 - (n) * 4)))

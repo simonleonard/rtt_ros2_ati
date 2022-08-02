@@ -22,8 +22,8 @@ Copyright (c) 1998, 1999, 2000 Thai Open Source Software Center Ltd
  * OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include <ati_rtt/xmldef.h>
-#include <ati_rtt/xmlparse.h>
+#include <rtt_ros2_ati/xmldef.h>
+#include <rtt_ros2_ati/xmlparse.h>
 #include <stddef.h>
 
 #ifdef XML_UNICODE
@@ -64,8 +64,8 @@ typedef char ICHAR;
 /* Round up n to be a multiple of sz, where sz is a power of 2. */
 #define ROUND_UP(n, sz) (((n) + ((sz) - 1)) & ~((sz) - 1))
 
-#include <ati_rtt/xmltok.h>
-#include <ati_rtt/xmlrole.h>
+#include <rtt_ros2_ati/xmltok.h>
+#include <rtt_ros2_ati/xmlrole.h>
 
 typedef const XML_Char *KEY;
 

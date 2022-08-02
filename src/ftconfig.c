@@ -29,8 +29,8 @@ dec.14.2007 - Sam Skuce (ATI Industrial Automation)
   Added support for kN-m torque units.
  */
 
-#include <ati_rtt/dom.h>				// GBB: added
-#include <ati_rtt/ftconfig.h>			// GBB: ftconfig.h modified to include strcutures in ftrt.h
+#include <rtt_ros2_ati/dom.h>				// GBB: added
+#include <rtt_ros2_ati/ftconfig.h>			// GBB: ftconfig.h modified to include strcutures in ftrt.h
 #include <math.h>              // sin(), cos()
 #include <stdio.h>
 

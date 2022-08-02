@@ -22,9 +22,9 @@ Copyright (c) 1998, 1999 Thai Open Source Software Center Ltd
  * OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include <ati_rtt/xmldef.h>
-#include <ati_rtt/xmlrole.h>
-#include <ati_rtt/ascii.h>
+#include <rtt_ros2_ati/xmldef.h>
+#include <rtt_ros2_ati/xmlrole.h>
+#include <rtt_ros2_ati/ascii.h>
 
 /* Doesn't check:
 

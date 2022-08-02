@@ -28,7 +28,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <stdio.h>
-#include <ati_rtt/stack.h>
+#include <rtt_ros2_ati/stack.h>
 
 #define STACK_INIT_SIZE 32
 

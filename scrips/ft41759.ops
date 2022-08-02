@@ -1,0 +1,29 @@
+import("rtt_ros2")
+import("rtt_ros2_node")
+import("rtt_ros2_topics")
+import("rtt_ros2_std_msgs")
+import("rtt_ros2_geometry_msgs")
+import("rtt_ros2_sensor_msgs")
+
+import("rtt_ros2_ati")
+
+loadComponent( "ati", "rtt_ros2_ati" )
+setActivity( "ati", 0.05, 0, ORO_SCHED_OTHER )
+
+ati.setDeviceFile( "/dev/comedi0" )
+
+var ints channels = ints( 0, 1, 2, 3, 4, 5 )
+ati.configureSensor( "ft41759", channels, "/home/sleonard/ros/needle_steering/src/rtt_ros2_ati/config/FT41759.cal")
+
+stream( "ati.ft41759", ros.topic("/ft41759", false) )
+ati.configure()
+ati.start()
+#ati.zero( "ft41759" )
+
+
+
+
+
+
+
+

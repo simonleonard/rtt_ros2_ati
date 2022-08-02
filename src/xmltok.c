@@ -22,9 +22,9 @@ Copyright (c) 1998, 1999 Thai Open Source Software Center Ltd
  * OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include <ati_rtt/xmldef.h>
-#include <ati_rtt/xmltok.h>
-#include <ati_rtt/nametab.h>
+#include <rtt_ros2_ati/xmldef.h>
+#include <rtt_ros2_ati/xmltok.h>
+#include <rtt_ros2_ati/nametab.h>
 
 #ifdef XML_DTD
 #define IGNORE_SECTION_TOK_VTABLE , PREFIX(ignoreSectionTok)
@@ -186,8 +186,8 @@ struct normal_encoding {
 
 static int checkCharRefNumber(int);
 
-#include <ati_rtt/xmltok_impl.h>
-#include <ati_rtt/ascii.h>
+#include <rtt_ros2_ati/xmltok_impl.h>
+#include <rtt_ros2_ati/ascii.h>
 
 #ifdef XML_MIN_SIZE
 #define sb_isNameMin isNever
@@ -340,8 +340,8 @@ void utf8_toUtf16(const ENCODING *enc,
 static const struct normal_encoding utf8_encoding_ns = {
   { VTABLE1, utf8_toUtf8, utf8_toUtf16, 1, 1, 0 },
   {
-#include <ati_rtt/asciitab.h>
-#include <ati_rtt/utf8tab.h>
+#include <rtt_ros2_ati/asciitab.h>
+#include <rtt_ros2_ati/utf8tab.h>
   },
   STANDARD_VTABLE(sb_) NORMAL_VTABLE(utf8_)
 };
@@ -351,9 +351,9 @@ static const struct normal_encoding utf8_encoding = {
   { VTABLE1, utf8_toUtf8, utf8_toUtf16, 1, 1, 0 },
   {
 #define BT_COLON BT_NMSTRT
-#include <ati_rtt/asciitab.h>
+#include <rtt_ros2_ati/asciitab.h>
 #undef BT_COLON
-#include <ati_rtt/utf8tab.h>
+#include <rtt_ros2_ati/utf8tab.h>
   },
   STANDARD_VTABLE(sb_) NORMAL_VTABLE(utf8_)
 };
@@ -363,8 +363,8 @@ static const struct normal_encoding utf8_encoding = {
 static const struct normal_encoding internal_utf8_encoding_ns = {
   { VTABLE1, utf8_toUtf8, utf8_toUtf16, 1, 1, 0 },
   {
-#include <ati_rtt/iasciitab.h>
-#include <ati_rtt/utf8tab.h>
+#include <rtt_ros2_ati/iasciitab.h>
+#include <rtt_ros2_ati/utf8tab.h>
   },
   STANDARD_VTABLE(sb_) NORMAL_VTABLE(utf8_)
 };
@@ -375,9 +375,9 @@ static const struct normal_encoding internal_utf8_encoding = {
   { VTABLE1, utf8_toUtf8, utf8_toUtf16, 1, 1, 0 },
   {
 #define BT_COLON BT_NMSTRT
-#include <ati_rtt/iasciitab.h>
+#include <rtt_ros2_ati/iasciitab.h>
 #undef BT_COLON
-#include <ati_rtt/utf8tab.h>
+#include <rtt_ros2_ati/utf8tab.h>
   },
   STANDARD_VTABLE(sb_) NORMAL_VTABLE(utf8_)
 };
@@ -421,8 +421,8 @@ void latin1_toUtf16(const ENCODING *enc,
 static const struct normal_encoding latin1_encoding_ns = {
   { VTABLE1, latin1_toUtf8, latin1_toUtf16, 1, 0, 0 },
   {
-#include <ati_rtt/asciitab.h>
-#include <ati_rtt/latin1tab.h>
+#include <rtt_ros2_ati/asciitab.h>
+#include <rtt_ros2_ati/latin1tab.h>
   },
   STANDARD_VTABLE(sb_)
 };
@@ -433,9 +433,9 @@ static const struct normal_encoding latin1_encoding = {
   { VTABLE1, latin1_toUtf8, latin1_toUtf16, 1, 0, 0 },
   {
 #define BT_COLON BT_NMSTRT
-#include <ati_rtt/asciitab.h>
+#include <rtt_ros2_ati/asciitab.h>
 #undef BT_COLON
-#include <ati_rtt/latin1tab.h>
+#include <rtt_ros2_ati/latin1tab.h>
   },
   STANDARD_VTABLE(sb_)
 };
@@ -454,7 +454,7 @@ void ascii_toUtf8(const ENCODING *enc,
 static const struct normal_encoding ascii_encoding_ns = {
   { VTABLE1, ascii_toUtf8, latin1_toUtf16, 1, 1, 0 },
   {
-#include <ati_rtt/asciitab.h>
+#include <rtt_ros2_ati/asciitab.h>
 /* BT_NONXML == 0 */
   },
   STANDARD_VTABLE(sb_)
@@ -466,7 +466,7 @@ static const struct normal_encoding ascii_encoding = {
   { VTABLE1, ascii_toUtf8, latin1_toUtf16, 1, 1, 0 },
   {
 #define BT_COLON BT_NMSTRT
-#include <ati_rtt/asciitab.h>
+#include <rtt_ros2_ati/asciitab.h>
 #undef BT_COLON
 /* BT_NONXML == 0 */
   },
@@ -677,8 +677,8 @@ static const struct normal_encoding little2_encoding_ns = {
 #endif
   },
   {
-#include <ati_rtt/asciitab.h>
-#include <ati_rtt/latin1tab.h>
+#include <rtt_ros2_ati/asciitab.h>
+#include <rtt_ros2_ati/latin1tab.h>
   },
   STANDARD_VTABLE(little2_)
 };
@@ -695,9 +695,9 @@ static const struct normal_encoding little2_encoding = {
   },
   {
 #define BT_COLON BT_NMSTRT
-#include <ati_rtt/asciitab.h>
+#include <rtt_ros2_ati/asciitab.h>
 #undef BT_COLON
-#include <ati_rtt/latin1tab.h>
+#include <rtt_ros2_ati/latin1tab.h>
   },
   STANDARD_VTABLE(little2_)
 };
@@ -709,8 +709,8 @@ static const struct normal_encoding little2_encoding = {
 static const struct normal_encoding internal_little2_encoding_ns = { 
   { VTABLE, 2, 0, 1 },
   {
-#include <ati_rtt/iasciitab.h>
-#include <ati_rtt/latin1tab.h>
+#include <rtt_ros2_ati/iasciitab.h>
+#include <rtt_ros2_ati/latin1tab.h>
   },
   STANDARD_VTABLE(little2_)
 };
@@ -721,9 +721,9 @@ static const struct normal_encoding internal_little2_encoding = {
   { VTABLE, 2, 0, 1 },
   {
 #define BT_COLON BT_NMSTRT
-#include <ati_rtt/iasciitab.h>
+#include <rtt_ros2_ati/iasciitab.h>
 #undef BT_COLON
-#include <ati_rtt/latin1tab.h>
+#include <rtt_ros2_ati/latin1tab.h>
   },
   STANDARD_VTABLE(little2_)
 };
@@ -816,8 +816,8 @@ static const struct normal_encoding big2_encoding_ns = {
 #endif
   },
   {
-#include <ati_rtt/asciitab.h>
-#include <ati_rtt/latin1tab.h>
+#include <rtt_ros2_ati/asciitab.h>
+#include <rtt_ros2_ati/latin1tab.h>
   },
   STANDARD_VTABLE(big2_)
 };
@@ -834,9 +834,9 @@ static const struct normal_encoding big2_encoding = {
   },
   {
 #define BT_COLON BT_NMSTRT
-#include <ati_rtt/asciitab.h>
+#include <rtt_ros2_ati/asciitab.h>
 #undef BT_COLON
-#include <ati_rtt/latin1tab.h>
+#include <rtt_ros2_ati/latin1tab.h>
   },
   STANDARD_VTABLE(big2_)
 };
@@ -848,8 +848,8 @@ static const struct normal_encoding big2_encoding = {
 static const struct normal_encoding internal_big2_encoding_ns = {
   { VTABLE, 2, 0, 1 },
   {
-#include <ati_rtt/iasciitab.h>
-#include <ati_rtt/latin1tab.h>
+#include <rtt_ros2_ati/iasciitab.h>
+#include <rtt_ros2_ati/latin1tab.h>
   },
   STANDARD_VTABLE(big2_)
 };
@@ -860,9 +860,9 @@ static const struct normal_encoding internal_big2_encoding = {
   { VTABLE, 2, 0, 1 },
   {
 #define BT_COLON BT_NMSTRT
-#include <ati_rtt/iasciitab.h>
+#include <rtt_ros2_ati/iasciitab.h>
 #undef BT_COLON
-#include <ati_rtt/latin1tab.h>
+#include <rtt_ros2_ati/latin1tab.h>
   },
   STANDARD_VTABLE(big2_)
 };

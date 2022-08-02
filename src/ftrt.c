@@ -26,7 +26,7 @@
 /* ftrt.h - routines for realtime calculation of forces and torques from voltages
  */
 
-#include <ati_rtt/ftrt.h>
+#include <rtt_ros2_ati/ftrt.h>
 
 //--------------------------------------------------
 // public routines definitions

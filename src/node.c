@@ -25,7 +25,7 @@
 /* node.c - DOM_NodeList, DOM_NamedNodeMap, and DOM_Node
  */
 
-#include <ati_rtt/dom.h>
+#include <rtt_ros2_ati/dom.h>
 
 /* NodeList
  */

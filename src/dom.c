@@ -32,7 +32,7 @@ of DOM_Exception into dom.c from dom.h.
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include <ati_rtt/dom.h>
+#include <rtt_ros2_ati/dom.h>
 
 unsigned short DOM_Exception; // GBB: used to be in dom.h (now defined as extern)
 
