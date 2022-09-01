@@ -47,6 +47,7 @@ bool rtt_ros2_ati::configureSensor( const std::string& name,
   
   Data* data = new Data;
   addPort( name, data->port_out_ati );
+  addPort( name+"_raw", data->port_out_ati_raw );
   data->channels['x'] = channels[0];
   data->channels['y'] = channels[1];
   data->channels['z'] = channels[2];
@@ -210,13 +211,23 @@ void rtt_ros2_ati::updateHook(){
     float ft[6];
     if( read( it->second, ft ) == rtt_ros2_ati::ESUCCESS ){
       geometry_msgs::msg::WrenchStamped w;
+      
+      it->second->port_out_ati.write( w );
+      w.wrench.force.x = ft[0];
+      w.wrench.force.y = ft[1];
+      w.wrench.force.z = ft[2];
+      w.wrench.torque.x = ft[3];
+      w.wrench.torque.y = ft[4];
+      w.wrench.torque.z = ft[5];
+      w.header.frame_id = frame_id;
+      it->second->port_out_ati_raw.write( w );
+      
       w.wrench.force.x = ft[0] + it->second->bias[0];
       w.wrench.force.y = ft[1] + it->second->bias[1];
       w.wrench.force.z = ft[2] + it->second->bias[2];
       w.wrench.torque.x = ft[3] + it->second->bias[3];
       w.wrench.torque.y = ft[4] + it->second->bias[4];
       w.wrench.torque.z = ft[5] + it->second->bias[5];
-      w.header.frame_id = frame_id;
       //w.header.stamp = ros::Time::now();
       it->second->port_out_ati.write( w );
     }
