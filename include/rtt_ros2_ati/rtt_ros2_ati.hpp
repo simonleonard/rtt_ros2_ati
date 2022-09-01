@@ -26,6 +26,7 @@ private:
   struct Data{
   
     RTT::OutputPort< geometry_msgs::msg::WrenchStamped > port_out_ati;
+    RTT::OutputPort< geometry_msgs::msg::WrenchStamped > port_out_ati_raw;
 
     std::string calibfile;
     Calibration *cal;
