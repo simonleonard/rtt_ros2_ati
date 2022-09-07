@@ -211,8 +211,9 @@ void rtt_ros2_ati::updateHook(){
     float ft[6];
     if( read( it->second, ft ) == rtt_ros2_ati::ESUCCESS ){
       geometry_msgs::msg::WrenchStamped w;
+      rclcpp::Node::SharedPtr node = rtt_ros2_node::getNode(this);
+      w.header.stamp = node->now();
       
-      it->second->port_out_ati.write( w );
       w.wrench.force.x = ft[0];
       w.wrench.force.y = ft[1];
       w.wrench.force.z = ft[2];
@@ -228,8 +229,8 @@ void rtt_ros2_ati::updateHook(){
       w.wrench.torque.x = ft[3] + it->second->bias[3];
       w.wrench.torque.y = ft[4] + it->second->bias[4];
       w.wrench.torque.z = ft[5] + it->second->bias[5];
-      //w.header.stamp = ros::Time::now();
       it->second->port_out_ati.write( w );
+
     }
   }
 

@@ -13,6 +13,8 @@
 
 #include <geometry_msgs/msg/wrench_stamped.hpp>
 
+#include <rtt_ros2_node/rtt_ros2_node.hpp>
+
 #include <rtt_ros2_ati/ftconfig.h>
 
 class rtt_ros2_ati : public RTT::TaskContext {
