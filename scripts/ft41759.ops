@@ -13,12 +13,13 @@ setActivity( "ati", 0.01, 0, ORO_SCHED_OTHER )
 ati.setDeviceFile( "/dev/comedi0" )
 
 var ints channels = ints( 0, 1, 2, 3, 4, 5 )
-ati.configureSensor( "tip", channels, "/home/sleonard/ros/needle_steering/src/needle_steering/rtt_ros2_ati/config/FT41759.cal")
+ati.configureSensor( "ati", channels, "/home/sleonard/ros/needle_steering/src/needle_steering/rtt_ros2_ati/config/FT41759.cal")
 
-stream( "ati.tip", ros.topic("/tip", false) )
+stream( "ati.ati", ros.topic("/ati", false) )
+stream( "ati.ati_raw", ros.topic("/ati_raw", false) )
 ati.configure()
 ati.start()
-#ati.zero( "ft41759" )
+ati.zero( "ft41759" )
 
 
 
